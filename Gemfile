@@ -14,6 +14,10 @@ gem 'faker',  '>=1.7.3'
 
 gem 'jwt'
 
+gem 'active_model_serializers', '~> 0.10.0'
+
+gem 'will_paginate'
+
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
