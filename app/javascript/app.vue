@@ -15,10 +15,11 @@
 </template>
 
 <script>
+  import axios from 'axios'
 export default {
   data: function () {
     return {
-      info: null,
+      info : null,
       message: "Hello Vue!",
       todos: [
         { text: 'Learn JavaScript' },
@@ -29,10 +30,10 @@ export default {
     }
 
   },
-  beforeMount () {
-    axios
-            .get('https://api.coindesk.com/v1/bpi/currentprice.json')
-            .then(response => (this.info = response))
+
+  mounted () {
+    axios.get('http://localhost:3000/todos', { headers: { 'Authorization': "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE1NjUxODE5NDV9.sgQI0l5qQnl-Bl7kKdSQs3ONt3xECO1xWbugfYjxqU0" } })
+            .then(response => (this.info = response.data[0].id + " " + response.data[0].title + " " + response.data[0].created_at + " " + response.data[0].created_by))
   },
 
   methods: {
